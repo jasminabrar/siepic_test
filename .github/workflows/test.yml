@@ -1,6 +1,7 @@
 name: Run on new release 
 
 on: 
+  workflow_dispatch:
   release:
     types:
       - published
