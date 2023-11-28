@@ -1,11 +1,9 @@
 name: Run on new release 
 
 on:
-  release:
+  repository_dispatch:
     types:
-      - published
-    repository:
-      - 'jasminabrar/siepic_test'
+      - workflow-B
 
 jobs:     
   run-on-new-release:
