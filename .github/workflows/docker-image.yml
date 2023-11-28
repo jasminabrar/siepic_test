@@ -1,10 +1,6 @@
 name: Create and Publish Docker Image
 
-on:
-  push:
-    branches: [ "master" ]
-    paths:
-      - 'Dockerfile'
+on: workflow_dispatch
 
 env:
   REGISTRY: ghcr.io
