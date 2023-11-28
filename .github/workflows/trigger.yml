@@ -1,4 +1,4 @@
-name: update repo 
+name: Trigger test workflow
 
 on: workflow_dispatch
 
