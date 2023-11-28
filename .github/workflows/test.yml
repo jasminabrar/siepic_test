@@ -1,6 +1,22 @@
 name: Run on new release 
 
-on: workflow_dispatch
+on: 
+  release:
+    types:
+      - published
+    repository:
+      - 'SiEPIC/SiEPIC_EBeam_PDK'
+  
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'Dockerfile'
+  pull_request:
+    types:
+      - closed 
+    branches: [ "master" ]
+    paths:
+      - 'Dockerfile'
 
 jobs:     
   run-on-new-release:
