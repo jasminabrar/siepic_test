@@ -1,9 +1,6 @@
 name: Run on new release 
 
-on:
-  repository_dispatch:
-    types:
-      - workflow-B
+on: workflow_dispatch
 
 jobs:     
   run-on-new-release:
