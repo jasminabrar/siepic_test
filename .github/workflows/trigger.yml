@@ -1,0 +1,20 @@
+name: Trigger test workflow
+
+on: workflow_dispatch
+
+jobs:     
+  run-on-new-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Pull test image
+        run: docker pull ghcr.io/jasminabrar/siepic_test/image:master-latest
+     
+      - name: Run docker container from image
+        run: docker run -itd --name test -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --security-opt label=type:container_runtime_t ghcr.io/jasminabrar/siepic_test/image:master-latest
+
+      - name: Trigger Workflow B
+        run: gh repo dispatch --repo jasminabrar/siepic_test --event workflow-B --payload '{"key": "value"}'
